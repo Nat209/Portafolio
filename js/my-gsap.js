@@ -425,3 +425,55 @@ skillSections.forEach((p) => {
         ease: "power2.out"
     })
 });
+
+// --- PROJECTS ANIMATIONS ---
+const projects = document.querySelectorAll(".project-card");
+
+if (projects.length > 0) {
+    // 1. Staggered Entry
+    gsap.from(projects, {
+        scrollTrigger: {
+            trigger: ".proyectos-grid",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+        },
+        y: 100,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out"
+    });
+
+    // 2. 3D Tilt Effect on Hover
+    projects.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            if (isMobile) return;
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg rotation
+            const rotateY = ((x - centerX) / centerX) * 5;
+
+            gsap.to(card, {
+                rotateX: rotateX,
+                rotateY: rotateY,
+                transformPerspective: 1000,
+                duration: 0.4,
+                ease: "power2.out"
+            });
+        });
+
+        card.addEventListener("mouseleave", () => {
+            gsap.to(card, {
+                rotateX: 0,
+                rotateY: 0,
+                duration: 0.5,
+                ease: "elastic.out(1, 0.5)"
+            });
+        });
+    });
+}
