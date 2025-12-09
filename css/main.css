@@ -767,15 +767,18 @@ body {
 }
 
 #proyectos h2,
-#proyectos p,
-#proyectos p *,
 #proyectos h2 * {
   color: #efefef;
 }
 
+#proyectos p,
+#proyectos p * {
+  color: #111010;
+}
+
 #proyectos *::-moz-selection {
-  background-color: #efefef;
-  color: #1c1c1c;
+  background-color: #724343;
+  color: #2e2929;
 }
 
 #proyectos *::selection {
