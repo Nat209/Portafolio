@@ -2,490 +2,629 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natalia Castro — Frontend | HTML | CSS | JavaScript | Vue 3 | PrimeNG </title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <style>
-  :root{
-    --bg:#f7f8fb;
-    --card:#ffffff;
-    --text:#0f172a;
-    --muted:#6b7280;
-    --primary:#1f67ff;
-    --ring: rgba(31,103,255,.15);
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
-    color:var(--text); background:var(--bg);
-  }
-  .wrap{
-    display:grid; grid-template-columns: 320px 1fr; gap:24px; padding:24px; min-height:100dvh;
-  }
-  /* Sidebar */
-  .sidebar{
-    background:var(--card); border-radius:16px; padding:20px; position:sticky; top:24px; height:fit-content;
-    box-shadow:0 6px 30px rgba(0,0,0,.06), 0 1px 0 rgba(0,0,0,.05);
-  }
-  .sidebar h2{
-    font-size:22px; margin:0 0 16px; letter-spacing:.2px;
-  }
-  .control{
-    display:flex; flex-direction:column; gap:12px; margin-top:8px;
-  }
-  .select{
-    display:flex; align-items:center; justify-content:space-between;
-    background:#eef2ff; color:#0b1220; border-radius:10px; padding:12px 14px; cursor:pointer;
-    border:1px solid transparent;
-  }
-  .select:focus-visible, .btn:focus-visible{ outline:2px solid var(--ring); outline-offset:2px; }
-  .menu{ background:var(--card); border:1px solid #e5e7eb; border-radius:10px; margin-top:6px; overflow:hidden; display:none; }
-  .menu.open{ display:block; }
-  .menu button{
-    display:flex; align-items:center; gap:10px; width:100%; padding:10px 12px; border:0; background:#fff; cursor:pointer;
-  }
-  .menu button:hover{ background:#f8fafc; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natalia Castro — Frontend | HTML | CSS | JavaScript | Vue 3 | PrimeNG </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #6b7280;
+      --primary: #1f67ff;
+      --ring: rgba(31, 103, 255, .15);
+    }
 
-  .btn{
-    display:flex; align-items:center; gap:10px; padding:12px 14px; border-radius:999px;
-    background:#0b1220; color:#fff; border:0; cursor:pointer; font-weight:600; justify-content:center;
-  }
-  .btn.secondary{ background:#111827; }
-  .btn svg{ width:18px; height:18px }
+    * {
+      box-sizing: border-box
+    }
 
-  /* Documento */
-  .doc{
-    background:#fff; border-radius:16px; padding:40px; box-shadow:0 6px 30px rgba(0,0,0,.06), 0 1px 0 rgba(0,0,0,.05);
-    max-width:900px; width:100%; margin:0 auto;
-  }
-  .doc h1{ margin:0 0 6px; font-size:28px }
-  .doc .sub{ color:var(--muted); margin:0 0 24px }
-  .doc h2{ margin:28px 0 10px; font-size:18px; text-transform:uppercase; letter-spacing:.06em }
-  .doc h3{ margin:14px 0 6px; font-size:16px }
-  .doc ul{ margin:8px 0 16px 18px }
-  .muted{ color:var(--muted) }
-  hr{ border:none; border-top:1px solid #e5e7eb; margin:24px 0 }
+    html,
+    body {
+      height: 100%
+    }
 
-  /* Responsive */
-  @media (max-width: 1024px){ .wrap{ grid-template-columns: 1fr; } .sidebar{ position:static } }
-  @media (max-width: 640px){ .doc{ padding:24px } }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
 
-  /* Impresión */
-  @media print{
-    @page{ size:A4; margin: 16mm 14mm; }
-    body{ background:#fff }
-    .wrap{ display:block; padding:0 }
-    .sidebar{ display:none !important }
-    .doc{ box-shadow:none; border-radius:0; max-width:unset; width:auto; padding:0 }
-    a[href]:after{ content:" (" attr(href) ")"; font-size:10px; color:#6b7280 }
-  }
-</style>
+    .wrap {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+      padding: 24px;
+      min-height: 100dvh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 20px;
+      position: sticky;
+      top: 24px;
+      height: fit-content;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, .06), 0 1px 0 rgba(0, 0, 0, .05);
+    }
+
+    .sidebar h2 {
+      font-size: 22px;
+      margin: 0 0 16px;
+      letter-spacing: .2px;
+    }
+
+    .control {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .select {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eef2ff;
+      color: #0b1220;
+      border-radius: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .select:focus-visible,
+    .btn:focus-visible {
+      outline: 2px solid var(--ring);
+      outline-offset: 2px;
+    }
+
+    .menu {
+      background: var(--card);
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      margin-top: 6px;
+      overflow: hidden;
+      display: none;
+    }
+
+    .menu.open {
+      display: block;
+    }
+
+    .menu button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 12px;
+      border: 0;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .menu button:hover {
+      background: #f8fafc;
+    }
+
+
+
+    /* Documento */
+    .doc {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, .06), 0 1px 0 rgba(0, 0, 0, .05);
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .doc h1 {
+      margin: 0 0 6px;
+      font-size: 28px
+    }
+
+    .doc .sub {
+      color: var(--muted);
+      margin: 0 0 24px
+    }
+
+    .doc h2 {
+      margin: 28px 0 10px;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: .06em
+    }
+
+    .doc h3 {
+      margin: 14px 0 6px;
+      font-size: 16px
+    }
+
+    .doc ul {
+      margin: 8px 0 16px 18px
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin: 24px 0
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static
+      }
+    }
+
+    @media (max-width: 640px) {
+      .doc {
+        padding: 24px
+      }
+    }
+
+    /* Impresión */
+    @media print {
+      @page {
+        size: A4;
+        margin: 16mm 14mm;
+      }
+
+      body {
+        background: #fff
+      }
+
+      .wrap {
+        display: block;
+        padding: 0
+      }
+
+      .sidebar {
+        display: none !important
+      }
+
+      .doc {
+        box-shadow: none;
+        border-radius: 0;
+        max-width: unset;
+        width: auto;
+        padding: 0
+      }
+
+      a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 10px;
+        color: #6b7280
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="ball-cursor"></div>
+  <div class="ball-cursor"></div>
 
-    <header class="hero" id="hero">
-        <div class="hero-header">
-            <button class="close-menu" id="close-menu"><i class="bi bi-x"></i></button>
-            <div class="hero-header-logo">
+  <header class="hero" id="hero">
+    <div class="hero-header">
+      <button class="close-menu" id="close-menu"><i class="bi bi-x"></i></button>
+      <div class="hero-header-logo">
 
-            </div>
-            <nav class="hero-header-nav">
-                <button class="open-menu" id="open-menu"><i class="bi bi-list"></i></button>
-                <ul class="menu" id="menu">
-                    <li class="menu-item"><a href="#about-me">Sobre mí</a></li>
-                    <li class="menu-item"><a href="#proyectos">Proyectos</a></li>
-                    <li class="menu-item"><a href="#conatacto">Conatacto</a></li>
-                    <li class="menu-item"><a href="#apoya">Hoja de vida</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="container hero-container">
-            <div class="hero-container-text">
-                <p class="hero-container-title">
-                    Natalia Castro.
-                    <span><svg xmlns="http://www.w3.org/2000/svg" class="hero-icon icon-emoji" fill="currentColor"
-                            class="bi bi-emoji-smile-upside-down" viewBox="0 0 16 16">
-                            <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0-1a8 8 0 1 1 0 16A8 8 0 0 1 8 0z" />
-                            <path
-                                d="M4.285 6.433a.5.5 0 0 0 .683-.183A3.498 3.498 0 0 1 8 4.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.498 4.498 0 0 0 8 3.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683zM7 9.5C7 8.672 6.552 8 6 8s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5zm4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5z" />
-                        </svg></span>
-                </p>
-                <p class="hero-container-title">
-                    Desarrollo
-                    <span><svg xmlns="http://www.w3.org/2000/svg" class="hero-icon icon-flecha" fill="currentColor"
-                            class="bi bi-arrow-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                        </svg></span>
-                    Fullstack
-                </p>
-                <p class="hero-container-title">
-                    <span><svg xmlns="http://www.w3.org/2000/svg" class="hero-icon icon-code" fill="currentColor"
-                            class="bi bi-code-square" viewBox="0 0 16 16">
-                            <path
-                                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                            <path
-                                d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z" />
-                        </svg></span>
-                    UX/ UI
-                </p>
-            </div>
-        </div>
-        <div class="hero-footer">
-            <div class="hero-footer-container">
-                <div class="stat">
-                    <p class="stat-number">vue</p>
-                    <p class="stat-word">Frontend</p>
-                </div>
-                <div class="stat">
-                    <p class="stat-number">React</p>
-                    <p class="stat-word">Frontend</p>
-                </div>
-                <div class="stat">
-                    <p class="stat-number">Angular</p>
-                    <p class="stat-word">Frontend</p>
-                </div>
-                <div class="stat">
-                    <p class="stat-number">Java</p>
-                    <p class="stat-word">Backend</p>
-                </div>
-                <div class="stat">
-                    <p class="stat-number">Python</p>
-                    <p class="stat-word">Backend</p>
-                </div>
-                <div class="stat">
-                    <p class="stat-number">PHP- Laravel</p>
-                    <p class="stat-word">Backend</p>
-                </div>
-            </div>
-        </div>
-        <video src="./videos/video.mp4" class="hero-video" autoplay muted loop playsinline></video>
-        <!-- <img src="./videos/video.png" class="hero-video" alt=""> -->
-    </header>
-    <main>
-        <section class="section skewElem" id="about-me">
-            <div class="container">
-                <div class="about-me">
-                    <div class="about-me-info">
-                        <div class="about-me-picture">
-                            <img src="./img/carpi.png" alt="Carpi">
-                        </div>
-                        <h2 class="section-title about-me-title">Sobre mí</h2>
-                        <p class="section-text about-me-text">Desarrolladora Full Stack apasionada por crear soluciones
-                            web que conecten con las personas. Trabajo con tecnologías como HTML, CSS, JavaScript,
-                            React, Vue, Node.js, PHP, Java, Python, MySQL y MongoDB para construir productos escalables,
-                            intuitivos y de alto rendimiento.
-                            Mi enfoque combina tecnología, diseño y usabilidad para entregar experiencias que realmente
-                            marquen la diferencia. Me mantengo en constante aprendizaje, explorando tendencias y
-                            herramientas que me permitan innovar y crecer profesionalmente.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="wrap">
-    <!-- SIDEBAR -->
-    <aside class="sidebar" aria-label="Acciones">
-      <h2 data-i18n="panel.title">Ver Hoja de Vida</h2>
-
-      <!-- Select Idioma -->
-      <div>
-        <button id="langSelect" class="select" aria-haspopup="listbox" aria-expanded="false">
-          <span id="langCurrent">English</span>
-          <span>▾</span>
-        </button>
-        <div id="langMenu" class="menu" role="listbox" aria-labelledby="langSelect">
-          <button data-lang="en" role="option">🇺🇸 <span>English</span></button>
-          <button data-lang="es" role="option">🇪🇸 <span>Español</span></button>
-        </div>
       </div>
-
-      <div class="control">
-        <button class="btn" id="shareBtn">
-          <!-- share icon -->
-          <svg viewBox="0 0 24 24" fill="none"><path d="M7 12l5-5 5 5M12 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <span data-i18n="panel.share" class="text-white">Compartir</span>
-        </button>
-
-        <button class="btn secondary text-color" id="printBtn">
-          <!-- print icon -->
-          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9V4h12v5M6 18h12v2H6z" stroke="currentColor" stroke-width="2"/><rect x="4" y="9" width="16" height="8" rx="2" stroke="currentColor" stroke-width="2"/></svg>
-          <span data-i18n="panel.print">Imprimir / PDF</span>
-        </button>
-
-        <button class="btn secondary text-color" id="downloadBtn">
-          <!-- download icon -->
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <span data-i18n="panel.download">Descargar .html</span>
-        </button>
-      </div>
-    </aside>
-
-    <!-- DOCUMENTO -->
-    <main id="doc" class="doc" aria-label="Documento">
-      <header>
-        <h1 data-i18n="cv.name">Nombre Apellido</h1>
-        <p class="sub" data-i18n="cv.role">Desarrolladora Full Stack</p>
-        <p class="muted" data-i18n="cv.contact">Bogotá, Colombia · email@dominio.com · linkedin.com/in/usuario</p>
-      </header>
-
-      <section>
-        <h2 data-i18n="cv.summary.title">Resumen</h2>
-        <p data-i18n="cv.summary.body">
-          Desarrolladora full stack enfocada en crear soluciones web escalables, accesibles y de alto impacto. Experiencia con HTML, CSS, JavaScript, React, Vue, Node.js, PHP, Java, Python, MySQL y MongoDB.
+      <nav class="hero-header-nav">
+        <button class="open-menu" id="open-menu"><i class="bi bi-list"></i></button>
+        <ul class="menu" id="menu">
+          <li class="menu-item"><a href="#about-me">Sobre mí</a></li>
+          <li class="menu-item"><a href="#proyectos">Proyectos</a></li>
+          <li class="menu-item"><a href="#conatacto">Conatacto</a></li>
+          <li class="menu-item"><a href="#apoya">Hoja de vida</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container hero-container">
+      <div class="hero-container-text">
+        <p class="hero-container-title">
+          Natalia Castro.
+          <span><svg xmlns="http://www.w3.org/2000/svg" class="hero-icon icon-emoji" fill="currentColor"
+              class="bi bi-emoji-smile-upside-down" viewBox="0 0 16 16">
+              <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0-1a8 8 0 1 1 0 16A8 8 0 0 1 8 0z" />
+              <path
+                d="M4.285 6.433a.5.5 0 0 0 .683-.183A3.498 3.498 0 0 1 8 4.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.498 4.498 0 0 0 8 3.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683zM7 9.5C7 8.672 6.552 8 6 8s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5zm4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5z" />
+            </svg></span>
         </p>
-      </section>
-      <hr/>
-
-      <section>
-        <h2 data-i18n="cv.experience.title">Experiencia</h2>
-
-        <article>
-          <h3 data-i18n="cv.experience.item1.role">Fábrica de Soluciones – Internship (ene 2024 – jun 2024)</h3>
-          <ul>
-            <li data-i18n="cv.experience.item1.li1">Diseñé e implementé estructura inicial en Vue 3, escalable y mantenible.</li>
-            <li data-i18n="cv.experience.item1.li2">Mejoré la comunicación frontend–backend con Axios y Pinia.</li>
-            <li data-i18n="cv.experience.item1.li3">Validaciones de endpoints con Postman, reduciendo errores.</li>
-            <li data-i18n="cv.experience.item1.li4">Formularios seguros; mitigación de inyección SQL.</li>
-            <li data-i18n="cv.experience.item1.li5">i18n con Vue 3 + Composition API.</li>
-          </ul>
-        </article>
-      </section>
-      <hr/>
-
-      <section>
-        <h2 data-i18n="cv.skills.title">Habilidades</h2>
-        <p data-i18n="cv.skills.tech"><strong>Tech:</strong> HTML, CSS, JS (ES6+), React, Vue, Next.js, Node.js, Express, REST, MySQL, MongoDB, Git, Swagger, Figma.</p>
-        <p data-i18n="cv.skills.soft"><strong>Blandas:</strong> Creatividad, Atención al detalle, Comunicación efectiva, Trabajo en equipo, Resolución de problemas.</p>
-      </section>
-      <hr/>
-
-      <section>
-        <h2 data-i18n="cv.education.title">Educación</h2>
-        <p data-i18n="cv.education.item1">Ingeniería de Software — 2022 · Presente · F. U. Empresarial</p>
-        <p data-i18n="cv.education.item2">Full Stack Developer Certificate — 2025 · Certiplus</p>
-      </section>
-    </main>
-  </div>
-        </section>
-    
-
-
-        <section class="section skewElem" id="proyectos">
-            <div class="container">
-                <div class="proyectos">
-                    <h2 class="section-title">
-                        Proyectos
-                    </h2>
-                 
-
-                </div>
-            </div>
-        </section>
-        <section class="section skewElem" id="contacto">
-            <div class="container">
-                <div class="conatacto">
-                    <h2 class="section-title" id="contacto-title">Contacto</h2>
-                    <p class="section-text">¡Sumate a mi Comunidad de contacto, donde nos reunimos para compartir
-                        experiencias, códigos, proyectos y ayudarnos mutuamente! Un espacio ideal para charlar con
-                        personas apasionadas por el mundo del desarrollo web.</p>
-                    <p class="section-text">En mi Comunidad vas a encontrar un ambiente amigable, donde vas a poder
-                        conectar con otros desarrolladores. Compartí tus experiencias, colaborá en proyectos y disfrutá
-                        de conversaciones enriquecedoras.</p>
-                    <a href="https://contacto.gg/wHKxGbMt4A" target="_blank" class="button button-contacto">Unite a la
-                        comunidad</a>
-                </div>
-            </div>
-        </section>
-        <section class="section" id="apoya">
-            <div class="container">
-                <div class="apoya">
-                    <h2 class="section-title">Apoyá mi contenido</h2>
-                    <p class="section-text">Si querés, podés apoyar mi contenido haciendo un pequeño aporte mensual.</p>
-                    <p class="section-text">Además de estar ayudándome a hacer crecer el canal y seguir haciendo
-                        contenido, vas a tener algunos beneficios como descuentos en mis cursos (próximamente) y
-                        participar de encuestas para elegir un video de mi canal por mes.</p>
-                    <div class="section-botones">
-                        <a class="button button-light"
-                            href="https://www.paypal.com/donate/?hosted_button_id=BVJ6LD7YYYFY2"
-                            target="_blank">PayPal</a>
-                        <a class="button button-light" href="https://patreon.com/carpicoder" target="_blank">Patreon</a>
-                        <a class="button button-light" href="https://cafecito.app/carpicoder"
-                            target="_blank">Cafecito</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="footer" id="footer">
-        <div class="container">
-            <div>
-                <h2 class="footer-title">Contactame</h2>
-                <div class="footer-redes">
-                    <a target="_blank" href="https://proyectos.com/carpicoder">
-                        <i aria-label="proyectos" class="bi bi-proyectos"></i>
-                    </a>
-                    
-                    </a>
-                    <a target="_blank" href="https://contacto.gg/wHKxGbMt4A">
-                        <i aria-label="contacto" class="bi bi-contacto"></i>
-                    </a>
-                    <a target="_blank" href="https://github.com/nat209">
-                        <i aria-label="GitHub" class="bi bi-github"></i>
-                    </a>
-                    <a target="_blank" href="mailto:nata.yuri2003@gmail.com">
-                        <i aria-label="Correo electrónico" class="bi bi-envelope"></i>
-                    </a>
-                </div>
-            </div>
+        <p class="hero-container-title">
+          Desarrollo
+          <span><svg xmlns="http://www.w3.org/2000/svg" class="hero-icon icon-flecha" fill="currentColor"
+              class="bi bi-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+            </svg></span>
+          Fullstack
+        </p>
+        <p class="hero-container-title">
+          <span><svg xmlns="http://www.w3.org/2000/svg" class="hero-icon icon-code" fill="currentColor"
+              class="bi bi-code-square" viewBox="0 0 16 16">
+              <path
+                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+              <path
+                d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z" />
+            </svg></span>
+          UX/ UI
+        </p>
+      </div>
+    </div>
+    <div class="hero-footer">
+      <div class="hero-footer-container">
+        <div class="stat">
+          <p class="stat-number">vue</p>
+          <p class="stat-word">Frontend</p>
         </div>
-    </footer>
+        <div class="stat">
+          <p class="stat-number">React</p>
+          <p class="stat-word">Frontend</p>
+        </div>
+        <div class="stat">
+          <p class="stat-number">Angular</p>
+          <p class="stat-word">Frontend</p>
+        </div>
+        <div class="stat">
+          <p class="stat-number">Java</p>
+          <p class="stat-word">Backend</p>
+        </div>
+        <div class="stat">
+          <p class="stat-number">Python</p>
+          <p class="stat-word">Backend</p>
+        </div>
+        <div class="stat">
+          <p class="stat-number">PHP- Laravel</p>
+          <p class="stat-word">Backend</p>
+        </div>
+      </div>
+    </div>
+    <video src="./videos/video.mp4" class="hero-video" autoplay muted loop playsinline></video>
+    <!-- <img src="./videos/video.png" class="hero-video" alt=""> -->
+  </header>
+  <main>
+    <section class="section skewElem" id="about-me">
+      <div class="container">
+        <div class="about-me">
+          <div class="about-me-info">
+            <div class="about-me-picture">
+              <img src="./img/carpi.png" alt="Carpi">
+            </div>
+            <h2 class="section-title about-me-title">Sobre mí</h2>
+            <p class="section-text about-me-text">Desarrolladora Full Stack apasionada por crear soluciones
+              web que conecten con las personas. Trabajo con tecnologías como HTML, CSS, JavaScript,
+              React, Vue, Node.js, PHP, Java, Python, MySQL y MongoDB para construir productos escalables,
+              intuitivos y de alto rendimiento.
+              Mi enfoque combina tecnología, diseño y usabilidad para entregar experiencias que realmente
+              marquen la diferencia. Me mantengo en constante aprendizaje, explorando tendencias y
+              herramientas que me permitan innovar y crecer profesionalmente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" aria-label="Acciones">
+          <h2 data-i18n="panel.title">Ver Hoja de Vida</h2>
+
+          <!-- Select Idioma -->
+          <div>
+            <button id="langSelect" class="select" aria-haspopup="listbox" aria-expanded="false">
+              <span id="langCurrent">English</span>
+              <span>▾</span>
+            </button>
+            <div id="langMenu" class="menu" role="listbox" aria-labelledby="langSelect">
+              <button data-lang="en" role="option">🇺🇸 <span>English</span></button>
+              <button data-lang="es" role="option">🇪🇸 <span>Español</span></button>
+            </div>
+          </div>
+
+          <div class="control">
+            <button class="btn" id="shareBtn">
+              <!-- share icon -->
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 12l5-5 5 5M12 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              <span data-i18n="panel.share">Compartir</span>
+            </button>
+
+            <button class="btn secondary" id="printBtn">
+              <!-- print icon -->
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 9V4h12v5M6 18h12v2H6z" stroke="currentColor" stroke-width="2" />
+                <rect x="4" y="9" width="8" height="8" rx="2" stroke="currentColor" stroke-width="2" />
+              </svg>
+              <span data-i18n="panel.print">Imprimir / PDF</span>
+            </button>
+
+            <button class="btn secondary" id="downloadBtn">
+              <!-- download icon -->
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" />
+              </svg>
+              <span data-i18n="panel.download">Descargar .html</span>
+            </button>
+          </div>
+        </aside>
+
+        <!-- DOCUMENTO -->
+        <main id="doc" class="doc" aria-label="Documento">
+          <header>
+            <h1 data-i18n="cv.name">Nombre Apellido</h1>
+            <p class="sub" data-i18n="cv.role">Desarrolladora Full Stack</p>
+            <p class="muted" data-i18n="cv.contact">Bogotá, Colombia · email@dominio.com · linkedin.com/in/usuario</p>
+          </header>
+
+          <section>
+            <h2 data-i18n="cv.summary.title">Resumen</h2>
+            <p data-i18n="cv.summary.body">
+              Desarrolladora full stack enfocada en crear soluciones web escalables, accesibles y de alto impacto.
+              Experiencia con HTML, CSS, JavaScript, React, Vue, Node.js, PHP, Java, Python, MySQL y MongoDB.
+            </p>
+          </section>
+          <hr />
+
+          <section>
+            <h2 data-i18n="cv.experience.title">Experiencia</h2>
+
+            <article>
+              <h3 data-i18n="cv.experience.item1.role">Fábrica de Soluciones – Internship (ene 2024 – jun 2024)</h3>
+              <ul>
+                <li data-i18n="cv.experience.item1.li1">Diseñé e implementé estructura inicial en Vue 3, escalable y
+                  mantenible.</li>
+                <li data-i18n="cv.experience.item1.li2">Mejoré la comunicación frontend–backend con Axios y Pinia.</li>
+                <li data-i18n="cv.experience.item1.li3">Validaciones de endpoints con Postman, reduciendo errores.</li>
+                <li data-i18n="cv.experience.item1.li4">Formularios seguros; mitigación de inyección SQL.</li>
+                <li data-i18n="cv.experience.item1.li5">i18n con Vue 3 + Composition API.</li>
+              </ul>
+            </article>
+          </section>
+          <hr />
+
+          <section>
+            <h2 data-i18n="cv.skills.title">Habilidades</h2>
+            <p data-i18n="cv.skills.tech"><strong>Tech:</strong> HTML, CSS, JS (ES6+), React, Vue, Next.js, Node.js,
+              Express, REST, MySQL, MongoDB, Git, Swagger, Figma.</p>
+            <p data-i18n="cv.skills.soft"><strong>Blandas:</strong> Creatividad, Atención al detalle, Comunicación
+              efectiva, Trabajo en equipo, Resolución de problemas.</p>
+          </section>
+          <hr />
+
+          <section>
+            <h2 data-i18n="cv.education.title">Educación</h2>
+            <p data-i18n="cv.education.item1">Ingeniería de Software — 2022 · Presente · F. U. Empresarial</p>
+            <p data-i18n="cv.education.item2">Full Stack Developer Certificate — 2025 · Certiplus</p>
+          </section>
+        </main>
+      </div>
+    </section>
 
 
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-        integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- SCROLL TRIGGER -->
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
 
-    <!-- LENIS SMOOTH SCROLL -->
+    <section class="section skewElem" id="proyectos">
+      <div class="container">
+        <div class="proyectos">
+          <h2 class="section-title">
+            Proyectos
+          </h2>
 
-    <!-- SPLIT TYPE -->
-    <script src="https://unpkg.com/split-type"></script>
 
-    <script src="./js/my-gsap.js"></script>
-    <script src="./js/cursor.js"></script>
-    <script src="./js/menu.js"></script>
+        </div>
+      </div>
+    </section>
+    <section class="section skewElem" id="contacto">
+      <div class="container">
+        <div class="conatacto">
+          <h2 class="section-title" id="contacto-title">Contacto</h2>
+          <p class="section-text">¡Sumate a mi Comunidad de contacto, donde nos reunimos para compartir
+            experiencias, códigos, proyectos y ayudarnos mutuamente! Un espacio ideal para charlar con
+            personas apasionadas por el mundo del desarrollo web.</p>
+          <p class="section-text">En mi Comunidad vas a encontrar un ambiente amigable, donde vas a poder
+            conectar con otros desarrolladores. Compartí tus experiencias, colaborá en proyectos y disfrutá
+            de conversaciones enriquecedoras.</p>
+          <a href="https://contacto.gg/wHKxGbMt4A" target="_blank" class="button button-contacto">Unite a la
+            comunidad</a>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="apoya">
+      <div class="container">
+        <div class="apoya">
+          <h2 class="section-title">Apoyá mi contenido</h2>
+          <p class="section-text">Si querés, podés apoyar mi contenido haciendo un pequeño aporte mensual.</p>
+          <p class="section-text">Además de estar ayudándome a hacer crecer el canal y seguir haciendo
+            contenido, vas a tener algunos beneficios como descuentos en mis cursos (próximamente) y
+            participar de encuestas para elegir un video de mi canal por mes.</p>
+          <div class="section-botones">
+            <a class="button button-light" href="https://www.paypal.com/donate/?hosted_button_id=BVJ6LD7YYYFY2"
+              target="_blank">PayPal</a>
+            <a class="button button-light" href="https://patreon.com/carpicoder" target="_blank">Patreon</a>
+            <a class="button button-light" href="https://cafecito.app/carpicoder" target="_blank">Cafecito</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div>
+        <h2 class="footer-title">Contactame</h2>
+        <div class="footer-redes">
+          <a target="_blank" href="https://proyectos.com/carpicoder">
+            <i aria-label="proyectos" class="bi bi-proyectos"></i>
+          </a>
 
-    <script>
-  // ===== DICCIONARIO I18N =====
-  const I18N = {
-    es: {
-      "panel.title":"Ver Hoja de Vida",
-      "panel.share":"Compartir",
-      "panel.print":"Imprimir / PDF",
-      "panel.download":"Descargar .html",
+          </a>
+          <a target="_blank" href="https://contacto.gg/wHKxGbMt4A">
+            <i aria-label="contacto" class="bi bi-contacto"></i>
+          </a>
+          <a target="_blank" href="https://github.com/nat209">
+            <i aria-label="GitHub" class="bi bi-github"></i>
+          </a>
+          <a target="_blank" href="mailto:nata.yuri2003@gmail.com">
+            <i aria-label="Correo electrónico" class="bi bi-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-      "cv.name":"Nombre Apellido",
-      "cv.role":"Desarrolladora Full Stack",
-      "cv.contact":"Bogotá, Colombia · email@dominio.com · linkedin.com/in/usuario",
 
-      "cv.summary.title":"Resumen",
-      "cv.summary.body":"Desarrolladora full stack enfocada en crear soluciones web escalables, accesibles y de alto impacto. Experiencia con HTML, CSS, JavaScript, React, Vue, Node.js, PHP, Java, Python, MySQL y MongoDB.",
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- SCROLL TRIGGER -->
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
 
-      "cv.experience.title":"Experiencia",
-      "cv.experience.item1.role":"Fábrica de Soluciones – Internship (ene 2024 – jun 2024)",
-      "cv.experience.item1.li1":"Diseñé e implementé estructura inicial en Vue 3, escalable y mantenible.",
-      "cv.experience.item1.li2":"Mejoré la comunicación frontend–backend con Axios y Pinia.",
-      "cv.experience.item1.li3":"Validaciones de endpoints con Postman, reduciendo errores.",
-      "cv.experience.item1.li4":"Formularios seguros; mitigación de inyección SQL.",
-      "cv.experience.item1.li5":"i18n con Vue 3 + Composition API.",
+  <!-- LENIS SMOOTH SCROLL -->
 
-      "cv.skills.title":"Habilidades",
-      "cv.skills.tech":"\u003cstrong>Tech:\u003c/strong> HTML, CSS, JS (ES6+), React, Vue, Next.js, Node.js, Express, REST, MySQL, MongoDB, Git, Swagger, Figma.",
-      "cv.skills.soft":"\u003cstrong>Blandas:\u003c/strong> Creatividad, Atención al detalle, Comunicación efectiva, Trabajo en equipo, Resolución de problemas.",
+  <!-- SPLIT TYPE -->
+  <script src="https://unpkg.com/split-type"></script>
 
-      "cv.education.title":"Educación",
-      "cv.education.item1":"Ingeniería de Software — 2022 · Presente · F. U. Empresarial",
-      "cv.education.item2":"Full Stack Developer Certificate — 2025 · Certiplus",
-    },
-    en: {
-      "panel.title":"View Résumé",
-      "panel.share":"Share",
-      "panel.print":"Print / PDF",
-      "panel.download":"Download .html",
+  <script src="./js/my-gsap.js"></script>
+  <script src="./js/cursor.js"></script>
+  <script src="./js/menu.js"></script>
 
-      "cv.name":"Name Surname",
-      "cv.role":"Full-Stack Developer",
-      "cv.contact":"Bogotá, Colombia · email@domain.com · linkedin.com/in/username",
+  <script>
+    // ===== DICCIONARIO I18N =====
+    const I18N = {
+      es: {
+        "panel.title": "Ver Hoja de Vida",
+        "panel.share": "Compartir",
+        "panel.print": "Imprimir / PDF",
+        "panel.download": "Descargar .html",
 
-      "cv.summary.title":"Summary",
-      "cv.summary.body":"Full-stack developer focused on building scalable, accessible and high-impact web solutions. Experience with HTML, CSS, JavaScript, React, Vue, Node.js, PHP, Java, Python, MySQL and MongoDB.",
+        "cv.name": "Nombre Apellido",
+        "cv.role": "Desarrolladora Full Stack",
+        "cv.contact": "Bogotá, Colombia · email@dominio.com · linkedin.com/in/usuario",
 
-      "cv.experience.title":"Work History",
-      "cv.experience.item1.role":"Solutions Factory – Internship (Jan 2024 – Jun 2024)",
-      "cv.experience.item1.li1":"Designed and implemented Vue 3 project scaffolding (scalable & maintainable).",
-      "cv.experience.item1.li2":"Improved frontend–backend communication using Axios and Pinia.",
-      "cv.experience.item1.li3":"Endpoint validation with Postman, reducing production errors.",
-      "cv.experience.item1.li4":"Secure form handling; mitigated SQL injection risks.",
-      "cv.experience.item1.li5":"i18n with Vue 3 + Composition API.",
+        "cv.summary.title": "Resumen",
+        "cv.summary.body": "Desarrolladora full stack enfocada en crear soluciones web escalables, accesibles y de alto impacto. Experiencia con HTML, CSS, JavaScript, React, Vue, Node.js, PHP, Java, Python, MySQL y MongoDB.",
 
-      "cv.skills.title":"Skills",
-      "cv.skills.tech":"\u003cstrong>Tech:\u003c/strong> HTML, CSS, JS (ES6+), React, Vue, Next.js, Node.js, Express, REST, MySQL, MongoDB, Git, Swagger, Figma.",
-      "cv.skills.soft":"\u003cstrong>Soft:\u003c/strong> Creativity, Attention to detail, Effective communication, Teamwork, Problem-solving.",
+        "cv.experience.title": "Experiencia",
+        "cv.experience.item1.role": "Fábrica de Soluciones – Internship (ene 2024 – jun 2024)",
+        "cv.experience.item1.li1": "Diseñé e implementé estructura inicial en Vue 3, escalable y mantenible.",
+        "cv.experience.item1.li2": "Mejoré la comunicación frontend–backend con Axios y Pinia.",
+        "cv.experience.item1.li3": "Validaciones de endpoints con Postman, reduciendo errores.",
+        "cv.experience.item1.li4": "Formularios seguros; mitigación de inyección SQL.",
+        "cv.experience.item1.li5": "i18n con Vue 3 + Composition API.",
 
-      "cv.education.title":"Education",
-      "cv.education.item1":"Software Engineering — 2022 · Present · Business University Foundation",
-      "cv.education.item2":"Full Stack Developer Certificate — 2025 · Certiplus",
+        "cv.skills.title": "Habilidades",
+        "cv.skills.tech": "\u003cstrong>Tech:\u003c/strong> HTML, CSS, JS (ES6+), React, Vue, Next.js, Node.js, Express, REST, MySQL, MongoDB, Git, Swagger, Figma.",
+        "cv.skills.soft": "\u003cstrong>Blandas:\u003c/strong> Creatividad, Atención al detalle, Comunicación efectiva, Trabajo en equipo, Resolución de problemas.",
+
+        "cv.education.title": "Educación",
+        "cv.education.item1": "Ingeniería de Software — 2022 · Presente · F. U. Empresarial",
+        "cv.education.item2": "Full Stack Developer Certificate — 2025 · Certiplus",
+      },
+      en: {
+        "panel.title": "View Résumé",
+        "panel.share": "Share",
+        "panel.print": "Print / PDF",
+        "panel.download": "Download .html",
+
+        "cv.name": "Name Surname",
+        "cv.role": "Full-Stack Developer",
+        "cv.contact": "Bogotá, Colombia · email@domain.com · linkedin.com/in/username",
+
+        "cv.summary.title": "Summary",
+        "cv.summary.body": "Full-stack developer focused on building scalable, accessible and high-impact web solutions. Experience with HTML, CSS, JavaScript, React, Vue, Node.js, PHP, Java, Python, MySQL and MongoDB.",
+
+        "cv.experience.title": "Work History",
+        "cv.experience.item1.role": "Solutions Factory – Internship (Jan 2024 – Jun 2024)",
+        "cv.experience.item1.li1": "Designed and implemented Vue 3 project scaffolding (scalable & maintainable).",
+        "cv.experience.item1.li2": "Improved frontend–backend communication using Axios and Pinia.",
+        "cv.experience.item1.li3": "Endpoint validation with Postman, reducing production errors.",
+        "cv.experience.item1.li4": "Secure form handling; mitigated SQL injection risks.",
+        "cv.experience.item1.li5": "i18n with Vue 3 + Composition API.",
+
+        "cv.skills.title": "Skills",
+        "cv.skills.tech": "\u003cstrong>Tech:\u003c/strong> HTML, CSS, JS (ES6+), React, Vue, Next.js, Node.js, Express, REST, MySQL, MongoDB, Git, Swagger, Figma.",
+        "cv.skills.soft": "\u003cstrong>Soft:\u003c/strong> Creativity, Attention to detail, Effective communication, Teamwork, Problem-solving.",
+
+        "cv.education.title": "Education",
+        "cv.education.item1": "Software Engineering — 2022 · Present · Business University Foundation",
+        "cv.education.item2": "Full Stack Developer Certificate — 2025 · Certiplus",
+      }
+    };
+
+    // ===== APLICAR IDIOMA =====
+    const els = document.querySelectorAll("[data-i18n]");
+    function setLang(lang) {
+      const dict = I18N[lang] || I18N.es;
+      els.forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        const val = dict[key];
+        if (val != null) {
+          // Permite texto con tags leves (<strong>)
+          el.innerHTML = val;
+        }
+      });
+      // UI select
+      document.getElementById("langCurrent").textContent = (lang === "en" ? "English" : "Español");
+      document.documentElement.lang = lang;
+      localStorage.setItem("cv-lang", lang);
     }
-  };
 
-  // ===== APLICAR IDIOMA =====
-  const els = document.querySelectorAll("[data-i18n]");
-  function setLang(lang){
-    const dict = I18N[lang] || I18N.es;
-    els.forEach(el=>{
-      const key = el.getAttribute("data-i18n");
-      const val = dict[key];
-      if(val != null){
-        // Permite texto con tags leves (<strong>)
-        el.innerHTML = val;
+    // ===== UI SELECT =====
+    const langSelect = document.getElementById("langSelect");
+    const langMenu = document.getElementById("langMenu");
+    langSelect.addEventListener("click", () => {
+      const open = langMenu.classList.toggle("open");
+      langSelect.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    langMenu.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-lang]");
+      if (!btn) return;
+      const lang = btn.getAttribute("data-lang");
+      setLang(lang);
+      langMenu.classList.remove("open");
+      langSelect.setAttribute("aria-expanded", "false");
+    });
+    document.addEventListener("click", (e) => {
+      if (!langMenu.contains(e.target) && e.target !== langSelect) langMenu.classList.remove("open");
+    });
+
+    // ===== COMPARTIR =====
+    const shareBtn = document.getElementById("shareBtn");
+    shareBtn.addEventListener("click", async () => {
+      const url = location.href;
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: document.title, text: "Mi hoja de vida", url });
+        } else {
+          await navigator.clipboard.writeText(url);
+          alert("Enlace copiado al portapapeles.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("No se pudo compartir.");
       }
     });
-    // UI select
-    document.getElementById("langCurrent").textContent = (lang === "en" ? "English" : "Español");
-    document.documentElement.lang = lang;
-    localStorage.setItem("cv-lang", lang);
-  }
 
-  // ===== UI SELECT =====
-  const langSelect = document.getElementById("langSelect");
-  const langMenu = document.getElementById("langMenu");
-  langSelect.addEventListener("click", ()=>{
-    const open = langMenu.classList.toggle("open");
-    langSelect.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-  langMenu.addEventListener("click",(e)=>{
-    const btn = e.target.closest("button[data-lang]");
-    if(!btn) return;
-    const lang = btn.getAttribute("data-lang");
-    setLang(lang);
-    langMenu.classList.remove("open");
-    langSelect.setAttribute("aria-expanded","false");
-  });
-  document.addEventListener("click",(e)=>{
-    if(!langMenu.contains(e.target) && e.target!==langSelect) langMenu.classList.remove("open");
-  });
+    // ===== IMPRIMIR / PDF =====
+    document.getElementById("printBtn").addEventListener("click", () => window.print());
 
-  // ===== COMPARTIR =====
-  const shareBtn = document.getElementById("shareBtn");
-  shareBtn.addEventListener("click", async ()=>{
-    const url = location.href;
-    try{
-      if(navigator.share){
-        await navigator.share({ title: document.title, text: "Mi hoja de vida", url });
-      }else{
-        await navigator.clipboard.writeText(url);
-        alert("Enlace copiado al portapapeles.");
-      }
-    }catch(err){
-      console.error(err);
-      alert("No se pudo compartir.");
-    }
-  });
-
-  // ===== IMPRIMIR / PDF =====
-  document.getElementById("printBtn").addEventListener("click", ()=> window.print());
-
-  // ===== DESCARGAR .HTML (sólo el documento) =====
-  document.getElementById("downloadBtn").addEventListener("click", ()=>{
-    const docHTML = `
+    // ===== DESCARGAR .HTML (sólo el documento) =====
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      const docHTML = `
 <!doctype html>
 <html lang="${document.documentElement.lang}">
 <head>
@@ -498,17 +637,17 @@
 <body>
 ${document.getElementById("doc").outerHTML}
 </body></html>`;
-    const blob = new Blob([docHTML], {type:"text/html;charset=utf-8"});
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "CV-"+(document.documentElement.lang || "es")+".html";
-    a.click();
-    URL.revokeObjectURL(a.href);
-  });
+      const blob = new Blob([docHTML], { type: "text/html;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "CV-" + (document.documentElement.lang || "es") + ".html";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
 
-  // Idioma inicial
-  setLang(localStorage.getItem("cv-lang") || "es");
-</script>
+    // Idioma inicial
+    setLang(localStorage.getItem("cv-lang") || "es");
+  </script>
 </body>
 
 </html>

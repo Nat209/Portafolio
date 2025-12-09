@@ -7,6 +7,12 @@ openMenu.addEventListener("click", () => {
     hero.classList.add("menu-active");
     menu.classList.add("menu-active");
     closeMenu.classList.add("active");
+
+    // Animate menu items in
+    gsap.fromTo(".menu-item",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, delay: 0.2, ease: "power2.out" }
+    );
 })
 
 closeMenu.addEventListener("click", () => {

@@ -2,10 +2,13 @@
     border: 1px solid $clr-light;
     padding: .25rem .75rem;
     border-radius: 100vmax;
-    transition: .2s;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     display: inline-flex;
     background-color: $clr-dark;
     color: $clr-light;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 
     &-light {
         border: 1px solid $clr-dark;
@@ -32,6 +35,13 @@
             border-color: $clr-secondary;
             color: $clr-dark;
             padding-inline: 3rem;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
     }
 }
